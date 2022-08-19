@@ -56,7 +56,7 @@ Steps to run the frontend
 1) open movieramaui in VSC
 2) open the IDE terminal
 3) run the command npm start
-4) Not all Components are Workable
+4) Not all Components are Workable as i am a newbie in front end. i will make it full workable eventually
 
 
 
