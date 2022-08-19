@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-@Slf4j
+
 @RestController
 public class MovieRatingController {
     @Autowired
@@ -25,12 +25,12 @@ public class MovieRatingController {
 
     @PostMapping("/vote")
     public void voteForMovie(@RequestBody MovieRatingDto movieRatingDto) throws SameActionByUserException, MovieDoesNotExistException, SameActionException, Exception, SameVoteException, SameVoterAndCreatorException {
-        log.info(String.valueOf(movieRatingDto));
+       
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
-        log.info(username);
+        
         movieRatingDto.setUserId(userRepository.findByUsername(username).getId());
-        log.info(String.valueOf(movieRatingDto));
+     
 
         movieRatingService.rateMovie(movieRatingDto);
     }
